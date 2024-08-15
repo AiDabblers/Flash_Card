@@ -108,7 +108,7 @@ export default function PricingPage() {
 									component="p"
 									sx={{ mb: 2 }}
 								>
-									$0.99
+									$9.99
 								</Typography>
 								<Typography variant="body1" sx={{ mb: 4 }}>
 									Full access to all features on a yearly
