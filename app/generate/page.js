@@ -2,6 +2,7 @@
 
 import { useUser } from "@clerk/nextjs";
 import { collection, getDoc, writeBatch, doc } from "firebase/firestore";
+import { db } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
@@ -44,7 +45,6 @@ export default function Generate() {
 			}
 
 			const data = await response.json();
-			console.log("Fetched data:", data); // Debugging line
 			if (data && data.flashcards) {
 				setFlashcards(data.flashcards);
 			} else {

@@ -86,18 +86,38 @@ export const NavBar: React.FC = () => {
 								</Link>
 							))}
 							<SignInButton>
-								<Button
-									variant="outlined"
-									color="secondary"
+								{/* <Button
+									variant="contained"
 									sx={{
 										ml: 2,
 										textTransform: "none",
 										fontSize: "1rem",
-										borderColor: "secondary.light",
+										backgroundImage:
+											"linear-gradient(45deg, #FF6F61 30%, #FF3D00 90%)",
+										color: "#fff",
 										"&:hover": {
-											borderColor: "secondary.main",
-											backgroundColor: "secondary.light",
+											backgroundImage:
+												"linear-gradient(45deg, #FF3D00 30%, #FF6F61 90%)",
 										},
+									}}
+								>
+									Login
+								</Button> */}
+								<Button
+									variant="contained"
+									sx={{
+										ml: 2,
+										textTransform: "none",
+										fontSize: "1rem",
+										backgroundImage:
+											"linear-gradient(45deg, #4CAF50, #8BC34A)",
+										color: "#fff",
+										"&:hover": {
+											backgroundImage:
+												"linear-gradient(45deg, #8BC34A, #4CAF50)",
+											opacity: 0.9,
+										},
+										transition: "all 0.3s",
 									}}
 								>
 									Login
@@ -105,14 +125,19 @@ export const NavBar: React.FC = () => {
 							</SignInButton>
 							<Button
 								variant="contained"
-								color="secondary"
 								sx={{
 									ml: 2,
 									textTransform: "none",
 									fontSize: "1rem",
+									backgroundImage:
+										"linear-gradient(45deg, #FF6F61, #FF3D00)",
+									color: "#fff",
 									"&:hover": {
-										backgroundColor: "secondary.dark",
+										backgroundImage:
+											"linear-gradient(45deg, #FF3D00, #FF6F61)",
+										opacity: 0.9,
 									},
+									transition: "all 0.3s",
 								}}
 								component="a"
 								href="/sign-up"
