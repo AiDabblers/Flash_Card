@@ -62,9 +62,16 @@ export const NavBar: React.FC = () => {
 									Home
 								</Button>
 							</Link>
-							{["About", "Pricing", "Contact"].map((page) => (
+							{[
+								"About",
+								"Pricing",
+								"Contact",
+								"Public Cards",
+							].map((page) => (
 								<Link
-									href={`/${page.toLowerCase()}`}
+									href={`/${page
+										.toLowerCase()
+										.replaceAll(" ", "-")}`}
 									passHref
 									key={page}
 								>
