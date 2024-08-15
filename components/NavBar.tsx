@@ -14,7 +14,7 @@ export const NavBar: React.FC = () => {
 	return (
 		<AppBar
 			position="static"
-			sx={{ bgcolor: "primary.main", boxShadow: "none", paddingY: 1 }}
+			sx={{ bgcolor: "#212121", boxShadow: "none", paddingY: 1 }}
 		>
 			<Toolbar>
 				<Container
@@ -37,7 +37,7 @@ export const NavBar: React.FC = () => {
 						}}
 					>
 						<Link href="/" passHref>
-							MyApp
+							CalcQuest
 						</Link>
 					</Typography>
 
@@ -86,35 +86,16 @@ export const NavBar: React.FC = () => {
 								</Link>
 							))}
 							<SignInButton>
-								{/* <Button
-									variant="contained"
-									sx={{
-										ml: 2,
-										textTransform: "none",
-										fontSize: "1rem",
-										backgroundImage:
-											"linear-gradient(45deg, #FF6F61 30%, #FF3D00 90%)",
-										color: "#fff",
-										"&:hover": {
-											backgroundImage:
-												"linear-gradient(45deg, #FF3D00 30%, #FF6F61 90%)",
-										},
-									}}
-								>
-									Login
-								</Button> */}
 								<Button
 									variant="contained"
 									sx={{
 										ml: 2,
 										textTransform: "none",
 										fontSize: "1rem",
-										backgroundImage:
-											"linear-gradient(45deg, #4CAF50, #8BC34A)",
-										color: "#fff",
+										backgroundColor: "#1976D2", // Bold Blue
+										color: "#fff", // White text
 										"&:hover": {
-											backgroundImage:
-												"linear-gradient(45deg, #8BC34A, #4CAF50)",
+											backgroundColor: "#2196F3", // Lighter Blue on hover
 											opacity: 0.9,
 										},
 										transition: "all 0.3s",
@@ -123,6 +104,7 @@ export const NavBar: React.FC = () => {
 									Login
 								</Button>
 							</SignInButton>
+
 							<Button
 								variant="contained"
 								sx={{
@@ -130,11 +112,11 @@ export const NavBar: React.FC = () => {
 									textTransform: "none",
 									fontSize: "1rem",
 									backgroundImage:
-										"linear-gradient(45deg, #FF6F61, #FF3D00)",
-									color: "#fff",
+										"linear-gradient(45deg, #43A047, #66BB6A)", // Deep Green to Light Green
+									color: "#fff", // White text
 									"&:hover": {
 										backgroundImage:
-											"linear-gradient(45deg, #FF3D00, #FF6F61)",
+											"linear-gradient(45deg, #66BB6A, #43A047)",
 										opacity: 0.9,
 									},
 									transition: "all 0.3s",

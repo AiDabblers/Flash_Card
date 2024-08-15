@@ -1,4 +1,3 @@
-// pages/pricing.tsx
 import React from "react";
 import {
 	Container,
@@ -7,6 +6,7 @@ import {
 	Grid,
 	Card,
 	CardContent,
+	CardHeader,
 	Button,
 } from "@mui/material";
 import { NavBar } from "@/components/NavBar";
@@ -37,31 +37,33 @@ export default function PricingPage() {
 				</Box>
 
 				{/* Pricing Options */}
-				<Grid container spacing={8} justifyContent="center">
+				<Grid container spacing={4} justifyContent="center">
 					{/* Free Plan */}
-					<Grid item xs={12} sm={4}>
+					<Grid item xs={12} sm={6} md={4}>
 						<Card
 							elevation={3}
 							sx={{
-								p: 4,
-								backgroundColor: "background.paper",
-								borderRadius: 2,
+								borderRadius: 4,
 								textAlign: "center",
-								boxShadow: 2,
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-between",
+								height: "100%",
 							}}
 						>
+							<CardHeader
+								title="Free Plan"
+								titleTypographyProps={{
+									variant: "h5",
+									fontWeight: "bold",
+								}}
+								sx={{ py: 3 }}
+							/>
 							<CardContent>
 								<Typography
-									variant="h5"
-									component="h2"
-									gutterBottom
-								>
-									Free
-								</Typography>
-								<Typography
-									variant="h4"
-									component="p"
-									sx={{ mb: 2 }}
+									variant="h3"
+									color="primary"
+									sx={{ mb: 2, fontWeight: 600 }}
 								>
 									$0
 								</Typography>
@@ -73,56 +75,64 @@ export default function PricingPage() {
 									Access to basic flashcards and learning
 									tools.
 								</Typography>
-								<Link href={"/sign-up"}>
-									<Button variant="contained" color="primary">
+							</CardContent>
+							<Box sx={{ pb: 3 }}>
+								<Link href="/sign-up">
+									<Button variant="contained" size="large">
 										Get Started
 									</Button>
 								</Link>
-							</CardContent>
+							</Box>
 						</Card>
 					</Grid>
 
-					{/* Monthly Subscription Plan */}
-					<Grid item xs={12} sm={4}>
+					{/* Yearly Subscription Plan */}
+					<Grid item xs={12} sm={6} md={4}>
 						<Card
 							elevation={3}
 							sx={{
-								p: 4,
-								backgroundColor: "primary.light",
+								backgroundColor: "primary.main",
 								color: "primary.contrastText",
-								borderRadius: 2,
+								borderRadius: 4,
 								textAlign: "center",
-								boxShadow: 2,
+								display: "flex",
+								flexDirection: "column",
+								justifyContent: "space-between",
+								height: "100%",
 							}}
 						>
+							<CardHeader
+								title="Yearly Plan"
+								titleTypographyProps={{
+									variant: "h5",
+									fontWeight: "bold",
+									color: "inherit",
+								}}
+								sx={{ py: 3 }}
+							/>
 							<CardContent>
 								<Typography
-									variant="h5"
-									component="h2"
-									gutterBottom
+									variant="h3"
+									sx={{ mb: 2, fontWeight: 600 }}
 								>
-									Yearly
-								</Typography>
-								<Typography
-									variant="h4"
-									component="p"
-									sx={{ mb: 2 }}
-								>
-									$9.99
+									$9.99/year
 								</Typography>
 								<Typography variant="body1" sx={{ mb: 4 }}>
 									Full access to all features on a yearly
 									basis.
 								</Typography>
-								<Link href={"/payment"}>
+							</CardContent>
+							<Box sx={{ pb: 3 }}>
+								<Link href="/payment">
 									<Button
 										variant="contained"
 										color="secondary"
+										size="large"
 									>
 										Subscribe Now
 									</Button>
 								</Link>
-							</CardContent>
+							</Box>
 						</Card>
 					</Grid>
 				</Grid>

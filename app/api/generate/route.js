@@ -28,42 +28,45 @@ Remember, the goal is to facilitate effective learning and retention of informat
 `;
 
 export async function POST(req) {
-    const data = await req.text(); // Get the raw text from the request
-  
-    try {
-      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "meta-llama/llama-3.1-8b-instruct",
-          messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: data }
-          ],
-        })
-      });
-  
-      if (!response.ok) {
-        throw new Error(`Failed to fetch from OpenRouter AI: ${response.statusText}`);
-      }
-  
-      const completion = await response.json();
-      // Extracting JSON from the response content
-      const rawJson = completion.choices[0].message.content;
-      const startIndex = rawJson.indexOf('{');
-      const endIndex = rawJson.lastIndexOf('}') + 1;
-      const jsonString = rawJson.substring(startIndex, endIndex);
-      const flashcardsData = JSON.parse(jsonString);
-  
-      // Assuming flashcardsData contains the "flashcards" array directly
-      return NextResponse.json({ flashcards: flashcardsData.flashcards });
-    } catch (error) {
-      console.error("Error processing request:", error);
-      return new Response("Error processing request", { status: 500 });
-    }
-  }
-  
-  
+	const data = await req.text(); // Get the raw text from the request
+
+	try {
+		const response = await fetch(
+			"https://openrouter.ai/api/v1/chat/completions",
+			{
+				method: "POST",
+				headers: {
+					Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					model: "meta-llama/llama-3.1-8b-instruct",
+					messages: [
+						{ role: "system", content: systemPrompt },
+						{ role: "user", content: data },
+					],
+				}),
+			}
+		);
+
+		if (!response.ok) {
+			throw new Error(
+				`Failed to fetch from OpenRouter AI: ${response.statusText}`
+			);
+		}
+
+		const completion = await response.json();
+		// Extracting JSON from the response content
+		const rawJson = completion.choices[0].message.content;
+		const startIndex = rawJson.indexOf("{");
+		const endIndex = rawJson.lastIndexOf("}") + 1;
+		const jsonString = rawJson.substring(startIndex, endIndex);
+		const flashcardsData = JSON.parse(jsonString);
+
+		// Assuming flashcardsData contains the "flashcards" array directly
+		return NextResponse.json({ flashcards: flashcardsData.flashcards });
+	} catch (error) {
+		console.error("Error processing request:", error);
+		return new Response("Error processing request", { status: 500 });
+	}
+}
